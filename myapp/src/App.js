@@ -33,6 +33,7 @@ import Shoppingcart from './shoppingcart';
 import { UserContext } from './context/context';
 import{useState} from 'react'
 import Productdetails from './productdetails';
+import Vendorsingle from './vendorsingle';
 
 
 
@@ -67,6 +68,7 @@ const [commondata, setCommondata] = useState([]);
     <Route exact path='/registerform' element={<Registerform />}/>
     <Route exact path='/vendormain' element={<Vendormain />}/>
     <Route exact path='/productdetails' element={<Productdetails />}/>
+    <Route exact path='/vendorsingle' element={<Vendorsingle />}/>
     <Route exact path='/productview' element={<Productview />}/>
     <Route exact path='/addproduct' element={<Addproduct />}/>
     <Route exact path='/pricedetails' element={<Pricedetails />}/>
