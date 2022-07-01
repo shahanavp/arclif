@@ -1,23 +1,18 @@
 import React from "react";
-import items from "./arr";
-import ReactStars from "react-rating-stars-component";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  useParams,
-} from "react-router-dom";
+
+import {BrowserRouter as Link,} from "react-router-dom";
+import Vendorheader from "./vendorheader";
 // import ReactDOM from 'react-dom/client';
 function Vendorsingle() {
   return (
     <div>
-      <div className="nav" style={{ width: "80rem", height: "1rem" }}></div>
+      <Vendorheader />
+      {/* <div className="nav" style={{ width: "80rem", height: "1rem" }}></div> */}
       <div className="d-flex" style={{ padding: "2rem" }}>
         <img
           src="assets/15535d82d16bc16f51f59a23acb1f050.jpg"
-          alt="image unavailable"
-          style={{ width: "35rem", height: "30rem" }}
+          alt="unavailable"
+          style={{ width: "30rem", height: "25rem" }}
         />
         <div className="d-flex flex-column">
           <div
@@ -29,9 +24,15 @@ function Vendorsingle() {
               <p className="card-text" style={{ lineHeight: "1rem" }}>
                 special price
               </p>
+              
               <p style={{ fontSize: "35px", lineHeight: "1rem" }}>₹499</p>
-
-              <p className="fs-4">
+              <p className="card-text" style={{ lineHeight: "1rem" }}>
+               category
+              </p>
+              <p className="card-text" style={{ lineHeight: "1rem" }}>
+                size
+              </p>
+              {/* <p className="fs-4">
                 <b>Available offers</b>
               </p>
               <li className="lh-1">
@@ -41,7 +42,7 @@ function Vendorsingle() {
               <li>
                 Bank Offer: 5% Instant Discount on HSBC Cashback Card
                 Transactions{" "}
-              </li>
+              </li> */}
             </div>
           </div>
           <div className="mt-5">
@@ -60,7 +61,7 @@ function Vendorsingle() {
               edit
             </Link>
             <Link
-              to="/"
+              to="/productdetails"
               className="btn mb-4 "
               style={{
                 marginLeft: "1rem",

@@ -14,19 +14,20 @@ function Header() {
       <div className="container-fluid">
         <p className="navbar-brand">
           <img
-            src="assets/shopping-cart-icon-flat-design-260nw-570153007.jpg"
+          src="assets/download.png"
+            // src="assets/shopping-cart-icon-flat-design-260nw-570153007.jpg"
             alt=""
-            width="40"
+            // width="40"
             height="40"
             className="d-inline-block align-text-top "
           />
-          <span className="ml-3">MARKET PLACE</span>
+          <span className="ml-2 mt-3"> | MARKET PLACE</span>
         </p>
 
         <div
           className="collapse navbar-collapse"
           id="navbarSupportedContent"
-          style={{ marginLeft: "15rem" }}
+          style={{ marginLeft: "12rem" }}
         >
           <ul className="navbar-nav ">
             <li className="nav-item">

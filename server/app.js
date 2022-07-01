@@ -1,9 +1,144 @@
-const express= require ("express");
-const mongoose =require("mongoose");
-const router=require("./src/routes/router")
-const app=express();
-app.use(express.json());
-mongoose.connect("mongodb+srv://shahana:0lGCgI3FBmyfIWfi@cluster0.hcbre.mongodb.net/arclif_db?retryWrites=true&w=majority",()=>console.log("db connected"))
-app.use("/",router)
+require('dotenv').config();
+const mongoose = require('mongoose')
+const express = require('express');
+const cors = require('cors');
+// const cookieParser = require('cookie-parser');
+const dbconnect = require('./src/database/dbconnection');
 
-app.listen(4500,()=>console.log("server started")) 
+var fs = require('fs');
+
+const path = require('path');
+const crypto = require('crypto');
+const multer = require('multer');
+const { GridFsStorage } = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
+const methodOverride = require('method-override')
+
+const app = express();
+//middleware
+app.use(express.json());
+dbconnect();
+app.use(methodOverride('_method'))
+
+const conn = mongoose.createConnection(process.env.MONGO_URI)
+
+let gfs;
+
+conn.once('open', () => {
+  gridfsBucket = new mongoose.mongo.GridFSBucket(conn.db, {
+    bucketName: 'uploads'
+  });
+  gfs = Grid(conn.db, mongoose.mongo);
+  gfs.collection('uploads')
+
+})
+
+const storage = new GridFsStorage({
+  url: process.env.MONGO_URI,
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      crypto.randomBytes(16, (err, buf) => {
+        if (err) {
+          return reject(err);
+        }
+        const filename = buf.toString('hex') + path.extname(file.originalname);
+        const fileInfo = {
+          filename: filename,
+          bucketName: 'uploads'
+        };
+        resolve(fileInfo);
+      });
+    });
+  }
+});
+
+const upload = multer({
+  storage
+});
+
+
+
+app.use(cors({ origin: '*', credentials: true }));
+// app.use(cors());
+// app.use(cookieParser());
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+  );
+  next();
+});
+
+const authrouter = require('./src/route/auth');
+// const fileRoute = require('./src/route/file');
+
+app.use('/api', authrouter)
+// app.use('/file',fileRoute)
+
+app.get('/', (req, res) => {
+  res.send("welcome")
+})
+
+app.post('/upload/:id', upload.single('file'), (req, res) => {
+  res.json({ file: req.file });
+})
+
+app.get('/files', (req, res) => {
+
+  gfs.files.find().toArray((err, files) => {
+    if (!files) {
+      return res.status(404).json({ err: 'No files exist' })
+    }
+   
+    return res.json(files);
+    
+  })
+})
+
+app.get('/files/:filename', (req, res) => {
+  gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    if (!file) {
+      return res.status(404).json({ err: 'No files exist' })
+    }
+ 
+    return res.json({ type: file.contentType, file });
+   
+  })
+})
+
+
+app.get('/fileuploaded/:filename', (req, res) => {
+
+  gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+   
+    if (!file || file.length === 0) {
+      return res.status(404).json({
+        err: 'No file exists'
+      });
+    }
+
+    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png' || file.contentType === "application/pdf") {
+
+      const readStream = gridfsBucket.openDownloadStream(file._id);
+      readStream.pipe(res);
+      
+
+    } else {
+      res.status(404).json({
+        err: 'No file found'
+      });
+    }
+  });
+});
+
+
+
+app.listen(process.env.PORT || 4500, () => {
+  console.log(`server started at ${process.env.PORT} `);
+});

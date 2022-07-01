@@ -11,18 +11,20 @@ import {
 // import ReactDOM from 'react-dom/client';
 function Productview(props) {
   return (
-    <div>
-
-
-  <tbody>
-    <tr>
-      <th scope="row"><img src={props.imgurl} style={{width: "7rem", height: "7rem"}}/></th>
-      <td style={{marginLeft:"10rem"}}>{props.name}</td>
-      <td><ReactStars size={15} isHalf={true} /></td>
-      <td><Link to="/vendorsingle">View</Link></td>
-    </tr>
-    </tbody>
-   
+    <>
+      <tbody>
+        <tr>
+          <td scope="row">
+            <img src={props.imgurl} style={{ width: "7rem", height: "7rem" }} />
+          </td>
+          <td>{props.name}</td>
+          <td>{props.category}
+          </td>
+          <td>
+            <Link to="/vendorsingle">View</Link>
+          </td>
+        </tr>
+      </tbody>
       {/* <div className="card ml-3 mt-3 " style={{ width: "18rem" }}>
         <Link to="/vendorsingle">
           <img
@@ -40,7 +42,7 @@ function Productview(props) {
           <p className="card-text">{props.size}</p>
         </div>
       </div> */}
-    </div>
+    </>
   );
 }
 

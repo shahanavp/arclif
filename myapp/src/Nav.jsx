@@ -18,48 +18,66 @@ function Nav() {
         
       }}
     >
-      <Link to="/kitchenware">
+      <Link to="/furniture1">
         <img
-         src="assets/photo-1556185781-a47769abb7ee.jpg"
-          style={{ width: "7rem", height: "7rem", padding: "5px" }}
+        src="assets/elegant-dark-apartment-interior-classic-260nw-1067812865.jpg"
+        //  src="assets/photo-1556185781-a47769abb7ee.jpg"
+          style={{ width: "5rem", height: "5rem", padding: "5px" }}
         />
-        <h6 style={{ textAlign: "center", color: "black"}}>kitchenware</h6>
+        <h6 style={{ textAlign: "center", color: "black",fontSize:"14px"}}>Furniture</h6>
       </Link>
 
-      <Link to="/furniture">
+      <Link to="/sofarecliners">
         <img
         src="assets/Wakefit-Kent-Coffee-Table.jpg"
           
-          style={{ width: "7rem", height: "7rem", padding: "5px" }}
+          style={{ width: "5rem", height: "5rem", padding: "5px" }}
         />
-        <h6 style={{ textAlign: "center", color: "black" }}>Furniture</h6>
+        <h6 style={{ textAlign: "center", color: "black",fontSize:"14px" }}>Sofas & Recliners</h6>
       </Link>
 
       <Link to="/homedecor">
         <img
-         
-          src="assets/fl34-10001_13_.webp"
+          // src="assets/indoor-plants-1582229387.webp"
+          src="assets/90ac288d3d62f59fcf9bad558bee1a51--animal-head-decor-animal-heads.jpg"
           
-          style={{ width: "7rem", height: "7rem", padding: "5px" }}
+          style={{ width: "5rem", height: "5rem", padding: "5px" }}
         />
-        <h6 style={{ textAlign: "center", color: "black" }}>Home decor</h6>
+        <h6 style={{ textAlign: "center", color: "black",fontSize:"14px" }}>Homedecor</h6>
       </Link>
 
-      <Link to="/furnishing">
+      <Link to="/bedsmattresses">
         <img
-          src="assets/54c0d258b4ada_-_07-hbx-mann-o-print-curtains-shubel-0712-s2.webp"
-          style={{ width: "7rem", height: "7rem", padding: "5px" }}
+        src="assets/SofiqueenLS_900x.webp"
+          // src="assets/54c0d258b4ada_-_07-hbx-mann-o-print-curtains-shubel-0712-s2.webp"
+          style={{ width: "5rem", height: "5rem", padding: "5px" }}
         />
-        <h6 style={{ textAlign: "center", color: "black" }}>Furnishing</h6>
+        <h6 style={{ textAlign: "center", color: "black" ,fontSize:"14px"}}>Beds & Mattresses</h6>
       </Link>
 
-      <Link to="/gardening">
+      <Link to="/lighting">
+        <img
+        
+         src="assets/fl34-10001_13_.webp"
+          style={{ width: "5rem", height: "5rem", padding: "5px" }}
+        />
+        <h6 style={{ textAlign: "center", color: "black" ,fontSize:"14px"}}>Lighting</h6>
+      </Link>
+      <Link to="/carpets">
+        <img
+         src="assets/182-60-modern-quality-carpet-trending-design-hand-woven-fluffy-original-imagcqsmcu5vmpww.webp"
+         
+          style={{ width: "5rem", height: "5rem", padding: "5px" }}
+        />
+        <h6 style={{ textAlign: "center", color: "black",fontSize:"14px" }}>Carpets</h6>
+      </Link>
+      <Link to="/gardenoutdoor">
         <img
          src="assets/indoor-plants-1582229387.webp"
          
-          style={{ width: "7rem", height: "7rem", padding: "5px" }}
+          style={{ width: "5rem", height: "5rem", padding: "5px" }}
         />
-        <h6 style={{ textAlign: "center", color: "black" }}>Gardening store</h6>
+        <h6 style={{ textAlign: "center", color: "black",fontSize:"14px" }}>Garden & outdoor</h6>
       </Link>
 
       {/* <Link to="/demo" ><img src="assets/images1.jpg" 

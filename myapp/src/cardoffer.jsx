@@ -55,9 +55,9 @@ function Cardoffer() {
         <div className="row g-0">
           <div className="col-md-4">
             <img
-              src="assets/images (1).jpg"
+              src="assets/img.jpg"
               className="img-fluid rounded-start"
-              alt="..."
+              alt="image unavailable"
             />
           </div>
           <div className="col-md-8">

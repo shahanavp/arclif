@@ -20,7 +20,7 @@ function Carousal() {
         </div>
         <div className="carousel-item ">
           <img
-            src="assets/Screen Shot 2021-02-18 at 11.34.57 AM.png"
+            src="assets\carousal2.png"
             className="d-block "
             alt="..."
             style={{ width: "80rem", height: "400px" }}

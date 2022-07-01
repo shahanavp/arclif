@@ -25,6 +25,7 @@ import Cardoffer from './cardoffer';
 import Gardening from './gardening';
 import Navsub from './navsub';
 import Furniture from './furniture';
+import Furniture1 from './furniture1';
 import Furnishing from './Furnishing';
 import Filter from './filter';
 import Homedecor from './homedecor';
@@ -34,6 +35,12 @@ import { UserContext } from './context/context';
 import{useState} from 'react'
 import Productdetails from './productdetails';
 import Vendorsingle from './vendorsingle';
+import Sofarecliners from './sofarecliners';
+import Bedsmattresses from './bedsmattresses';
+import Lighting from './lighting';
+import Carpets from './carpets';
+import Gardenoutdoor from './gardenoutdoor';
+
 
 
 
@@ -52,12 +59,19 @@ const [commondata, setCommondata] = useState([]);
     <Route exact path='/cardoffer' element={<Cardoffer />}/>
     <Route exact path='/gardening' element={<Gardening />}/>
     <Route exact path='/furniture' element={<Furniture />}/>
+    <Route exact path='/furniture1' element={<Furniture1 />}/>
+    <Route exact path='/sofarecliners' element={<Sofarecliners />}/>
+    <Route exact path='/bedsmattresses' element={<Bedsmattresses />}/>
+    <Route exact path='/lighting' element={<Lighting />}/>
+    <Route exact path='/carpets' element={<Carpets />}/>
+    <Route exact path='/gardenoutdoor' element={<Gardenoutdoor />}/>
     <Route exact path='/furnishing' element={<Furnishing />}/>
     <Route exact path='/homedecor' element={<Homedecor />}/>
     <Route exact path='/filter' element={<Filter />}/>
     <Route exact path='/navsub' element={<Navsub />}/>
     <Route exact path='/cart' element={<Cart/>}/>
     <Route exact path='/buy/:id' element={<Buy />}/>
+    
     <Route exact path='/order' element={<Order />}/>
     <Route exact path='/upi' element={<Upi />}/>
     <Route exact path='/demo' element={<Demo />}/>

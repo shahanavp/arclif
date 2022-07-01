@@ -51,7 +51,7 @@ function Card() {
               <h5 className="card-title">{item.alt_description}</h5>
               <ReactStars size={15} isHalf={true} />
               <p className="card-text">{item.likes}</p>
-              <Link to={`/buy/${item.id}`} className="btn btn-primary">
+              <Link to= {`/buy/${item.id}`}className="btn btn-primary">
                 Buy now
               </Link>
 
